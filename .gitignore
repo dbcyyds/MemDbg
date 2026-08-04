@@ -1,0 +1,56 @@
+# 构建产物
+/out/
+*.o
+*.a
+*.so
+*.dex
+!java_ime/**/*.java
+
+# 生成的大文件 / 二进制
+src/font_embed.h
+tools/mdbg_dec
+tools/mdbg_dec_dyn
+tools/mdbg_dec.upx
+tools/r8.jar
+tools/out/
+
+# 第三方压缩包
+third_party/*.tar.gz
+third_party/*.zip
+
+# 本地符号链接（仓库内使用 third_party/imgui）
+/third_party_imgui
+
+# IDE / 系统
+.idea/
+.vscode/
+*.swp
+*~
+.DS_Store
+.clangd/
+.compile_commands.json
+
+# 运行残留
+imgui.ini
+*.log
+shots/*.png
+
+# Java 编译中间
+java_ime/**/*.class
+java_ime/**/classes/
+java_ime/**/icon_classes/
+java_ime/**/icon_dex/
+java_ime/**/probe*_out/
+java_ime/**/*_out/
+
+# 打包加密产物（体积大，本地生成）
+out/dbc21_.sh
+out/memdbg.sh
+out/memdbg.clear.sh
+out/*.upx
+out/*.noupx
+
+# 字体 zlib 中间文件
+data/*.ttf.zlib
+include/vulkan/
+include/vk_video/

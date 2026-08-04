@@ -1,0 +1,9 @@
+package android.text;
+public interface InputType {
+  int TYPE_CLASS_TEXT = 1;
+  int TYPE_CLASS_NUMBER = 2;
+  int TYPE_NUMBER_FLAG_SIGNED = 0x1000;
+  int TYPE_NUMBER_FLAG_DECIMAL = 0x2000;
+  int TYPE_TEXT_FLAG_NO_SUGGESTIONS = 0x80000;
+  int TYPE_TEXT_FLAG_AUTO_CORRECT = 0x8000;
+}
