@@ -90,6 +90,17 @@ else
   echo "warn: $DEX_SRC missing — keep existing embed header if any"
 fi
 
+# 若仅有 base64 字体，先还原 ttf
+if [[ ! -f "${ROOT}/data/memdbg_cjk_subset.ttf" && -f "${ROOT}/data/memdbg_cjk_subset.ttf.b64" ]]; then
+  echo "== restore font from base64 =="
+  python3 - "${ROOT}/data/memdbg_cjk_subset.ttf.b64" "${ROOT}/data/memdbg_cjk_subset.ttf" <<'PYB'
+import sys, base64, pathlib
+src, dst = pathlib.Path(sys.argv[1]), pathlib.Path(sys.argv[2])
+dst.write_bytes(base64.b64decode(src.read_text().encode()))
+print(f"  restored {dst} ({dst.stat().st_size} bytes)")
+PYB
+fi
+
 echo "== embed CJK font (zlib) =="
 FONT_TTF="${ROOT}/data/memdbg_cjk_subset.ttf"
 FONT_H="${ROOT}/src/font_embed.h"
