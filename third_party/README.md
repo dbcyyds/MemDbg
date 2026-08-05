@@ -2,7 +2,15 @@
 
 | 目录 | 说明 |
 |------|------|
-| `imgui/` | Dear ImGui 精简拷贝（核心 + `imgui_impl_vulkan`），MIT |
-| `lua-5.4.7/` | Lua 5.4.7 源码，MIT |
+| `imgui/` | Dear ImGui（本仓库 vendored 拷贝，或 `git clone https://github.com/ocornut/imgui.git third_party/imgui`） |
+| `lua-5.4.7/` | Lua 5.4.7 官方源码布局（从 https://www.lua.org/ftp/lua-5.4.7.tar.gz 解压） |
 
-升级 ImGui：从 https://github.com/ocornut/imgui 同步同名文件到本目录。
+若 clone 后缺少目录：
+
+```bash
+# ImGui
+git clone --depth 1 https://github.com/ocornut/imgui.git third_party/imgui
+
+# Lua 5.4.7
+curl -L https://www.lua.org/ftp/lua-5.4.7.tar.gz | tar -xz -C third_party
+```
